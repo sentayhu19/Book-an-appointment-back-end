@@ -11,10 +11,6 @@
 - Frameworks
 - Technologies used
 
-## Live Demo (if available)
-
-[Live Demo Link](https://livedemo.com)
-
 
 ## Getting Started
 
@@ -40,18 +36,29 @@ To get a local copy up and running follow these simple example steps.
 
 ## Authors
 
-👤 **Author1**
+👤 **Ayoub Chahir**
 
-- GitHub: [@githubhandle](https://github.com/githubhandle)
-- Twitter: [@twitterhandle](https://twitter.com/twitterhandle)
-- LinkedIn: [LinkedIn](https://linkedin.com/in/linkedinhandle)
+- GitHub: [@AyoubMS](https://github.com/AyoubMs)
+- Twitter: [@KnowledgeUserD](https://twitter.com/KnowledgeUserD)
+- LinkedIn: [Ayoub Chahir](https://www.linkedin.com/in/ayoub-chahir/) 
 
-👤 **Author2**
+👤 **Sentayhu Berhanu** 
 
-- GitHub: [@githubhandle](https://github.com/githubhandle)
-- Twitter: [@twitterhandle](https://twitter.com/twitterhandle)
-- LinkedIn: [LinkedIn](https://linkedin.com/in/linkedinhandle)
+- GitHub: [@sentayhu19](https://github.com/sentayhu19) 
+- Twitter: [@VoltageBerhanu](https://twitter.com/VoltageBerhanu) 
+- LinkedIn: [sentayhu-berhanu](https://www.linkedin.com/in/sentayhu-berhanu-6376579a/) 
 
+👤 **Debas Gebreslasie**
+
+- GitHub: [GitHub](https://github.com/Debas-31)
+- Twitter: [Twitter](https://twitter.com/DEBSH76956492)
+- LinkedIn: [LinkedIn](https://www.linkedin.com/in/debas-gebrengus)
+- 
+👤 **Solomon Hagan**
+
+- GitHub: [@Achilles-Dev](https://github.com/Achilles-Dev/)
+- Twitter: [@SoloAchilles](https://twitter.com/SoloAchilles/)
+- LinkedIn: [Solomon Hagan](https://www.linkedin.com/in/solomon-hagan/) 
 ## 🤝 Contributing
 
 Contributions, issues, and feature requests are welcome!
