@@ -1,6 +1,5 @@
 class Api::MotorcyclesController < ApplicationController
-  before_action :authenticate_user!
-  before_action :set_user
+  before_action :set_user, only: [:create]
 
   def index
     @motors = Motorcycle.all
@@ -34,14 +33,15 @@ class Api::MotorcyclesController < ApplicationController
     motor.update(motor_params)
   end
 
-  def destroy; end
-  motor = Motorcycle.find(params[:id])
-  motor.destroy
+  def destroy
+    motor = Motorcycle.find(params[:id])
+    motor.destroy
+  end
 
   private
 
   def set_user
-    @user = current_user
+    @user = User.find(params[:user_id])
   end
 
   def motor_params

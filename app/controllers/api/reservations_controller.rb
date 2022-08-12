@@ -1,9 +1,8 @@
-class Api::Reservations < ApplicationController
-  before_action :authenticate_user!
-  before_action :set_user
+class Api::ReservationsController < ApplicationController
+  before_action :set_user, only: %i[index create]
 
   def index
-    @reservations = @user.reservations.all
+    @reservations = @user.reservations
     render json: @reservations
   end
 
@@ -35,14 +34,15 @@ class Api::Reservations < ApplicationController
     reservation.update(reservation_params)
   end
 
-  def destroy; end
-  reservation = Reservation.find(params[:id])
-  reservation.destroy
+  def destroy
+    reservation = Reservation.find(params[:id])
+    reservation.destroy
+  end
 
   private
 
   def set_user
-    @user = current_user
+    @user = User.find(params[:user_id])
   end
 
   def reservation_params
