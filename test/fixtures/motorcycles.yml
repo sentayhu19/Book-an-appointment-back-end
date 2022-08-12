@@ -8,6 +8,9 @@ one:
   total_payable: 9.99
   duration_months: 1
   apr_rep: 9.99
+  image: MyString
+  description: MyText
+  user: one
 
 two:
   model: MyString
@@ -17,3 +20,6 @@ two:
   total_payable: 9.99
   duration_months: 1
   apr_rep: 9.99
+  image: MyString
+  description: MyText
+  user: two

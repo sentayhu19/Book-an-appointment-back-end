@@ -8,6 +8,9 @@ class CreateMotorcycles < ActiveRecord::Migration[7.0]
       t.decimal :total_payable
       t.integer :duration_months
       t.decimal :apr_rep
+      t.string :image
+      t.text :description
+      t.references :user, null: false, foreign_key: true
 
       t.timestamps
     end
