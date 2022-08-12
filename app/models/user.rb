@@ -4,5 +4,5 @@ class User < ApplicationRecord
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :validatable
   has_many :motorcycles
-  validates :name, uniqueness: true
+  validates :name, uniqueness: true, presence: true
 end
