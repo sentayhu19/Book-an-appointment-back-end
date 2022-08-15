@@ -3,7 +3,11 @@ class Api::ReservationsController < ApplicationController
 
   def index
     @reservations = @user.reservations
-    render json: @reservations, status: :ok
+    if @reservations
+      render json: @reservations, status: :ok
+    else
+      render json: { error: 'Oops! Could not get reservations!' }, status: :not_found
+    end
   end
 
   def new

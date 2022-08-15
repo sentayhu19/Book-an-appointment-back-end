@@ -3,7 +3,11 @@ class Api::MotorcyclesController < ApplicationController
 
   def index
     @motors = Motorcycle.all
-    render json: @motors
+    if @motors
+      render json: @motors
+    else
+      render json: { error: 'Oops! Could not get motors!' }, status: :not_found
+    end
   end
 
   def new
