@@ -3,7 +3,7 @@ class Api::ReservationsController < ApplicationController
 
   def index
     @reservations = @user.reservations
-    render json: @reservations
+    render json: @reservations, status: :ok
   end
 
   def new
@@ -26,17 +26,31 @@ class Api::ReservationsController < ApplicationController
 
   def show
     @reservation = Reservation.find(params[:id])
-    render json: @reservation
+    if @reservation.present?
+      render json: @reservation, status: :ok
+    else
+      render json: { error: 'Reservation does not exist' }, status: :not_found
+    end
   end
 
   def update
     reservation = Reservation.find(params[:id])
-    reservation.update(reservation_params)
+    if reservation.present?
+      reservation.update(reservation_params)
+      render json: { success: 'Reservation successfully updated' }
+    else
+      render json: { error: 'Reservation does not exist' }, status: :not_found
+    end
   end
 
   def destroy
     reservation = Reservation.find(params[:id])
-    reservation.destroy
+    if reservation.present?
+      reservation.destroy
+      render json: { success: 'Reservation successfully deleted' }
+    else
+      render json: { error: 'Reservation does not exist' }, status: :not_found
+    end
   end
 
   private

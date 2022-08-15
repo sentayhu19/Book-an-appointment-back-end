@@ -12,7 +12,7 @@ class Api::MotorcyclesController < ApplicationController
 
   def create
     motor = Motorcycle.new(motor_params.merge(user: @user))
-    if @motor.save
+    if motor.save
       render json: motor, status: :ok
     else
       render json: { errors: motor.errors.full_messages }, status: :unprocessable_entity
@@ -25,17 +25,31 @@ class Api::MotorcyclesController < ApplicationController
 
   def show
     @motor = Motorcycle.find(params[:id])
-    render json: @motor
+    if @motor.present?
+      render json: @motor, status: :ok
+    else
+      render json: { error: 'Motor does not exist' }, status: :not_found
+    end
   end
 
   def update
     motor = Motorcycle.find(params[:id])
-    motor.update(motor_params)
+    if motor.present?
+      motor.update(motor_params)
+      render json: { success: 'Motor successfully updated' }
+    else
+      render json: { error: 'Motor does not exist' }, status: :not_found
+    end
   end
 
   def destroy
     motor = Motorcycle.find(params[:id])
-    motor.destroy
+    if motor.present?
+      motor.destroy
+      render json: { success: 'Motor successfully deleted' }
+    else
+      render json: { error: 'Motor does not exist' }, status: :not_found
+    end
   end
 
   private
