@@ -16,7 +16,7 @@ class Api::ReservationsController < ApplicationController
     if reservation.save
       render json: reservation, status: :ok
     else
-      render json: { errors: reservation.errors.full_messages }, status: :unprocessable_entity
+      render json: { errors: 'Reservation could not be created' }, status: :unprocessable_entity
     end
   end
 

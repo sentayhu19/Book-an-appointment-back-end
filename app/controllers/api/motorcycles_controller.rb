@@ -15,7 +15,7 @@ class Api::MotorcyclesController < ApplicationController
     if motor.save
       render json: motor, status: :ok
     else
-      render json: { errors: motor.errors.full_messages }, status: :unprocessable_entity
+      render json: { errors: 'Motorcycle could not be created' }, status: :unprocessable_entity
     end
   end
 

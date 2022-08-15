@@ -4,11 +4,12 @@ class Api::RegistrationsController < Devise::RegistrationsController
   end
 
   def create
-    user = User.new(sign_up_params)
-    if user.save!
-      render json: user, status: :ok
+    @user = User.new(sign_up_params)
+    if @user.save!
+      @token = @user.generate_jwt
+      render json: { user: @user, token: @token }, status: :ok
     else
-      render json: { errors: user.errors.full_messages }, status: :unprocessable_entity
+      render json: { errors: 'User could not be created' }, status: :unprocessable_entity
     end
   end
 
