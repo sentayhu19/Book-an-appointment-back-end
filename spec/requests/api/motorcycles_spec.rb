@@ -63,33 +63,33 @@ RSpec.describe 'Motorcycles', type: :request do
       end
     end
     put('update motorcycles') do
-        response(200, 'successful') do
-          let(:id) { '123' }
-  
-          after do |example|
-            example.metadata[:response][:content] = {
-              'application/json' => {
-                example: JSON.parse(response.body, symbolize_names: true)
-              }
+      response(200, 'successful') do
+        let(:id) { '123' }
+
+        after do |example|
+          example.metadata[:response][:content] = {
+            'application/json' => {
+              example: JSON.parse(response.body, symbolize_names: true)
             }
-          end
-          run_test!
+          }
         end
+        run_test!
       end
-  
-      delete('delete motorcycle') do
-        response(200, 'successful') do
-          let(:id) { '123' }
-  
-          after do |example|
-            example.metadata[:response][:content] = {
-              'application/json' => {
-                example: JSON.parse(response.body, symbolize_names: true)
-              }
+    end
+
+    delete('delete motorcycle') do
+      response(200, 'successful') do
+        let(:id) { '123' }
+
+        after do |example|
+          example.metadata[:response][:content] = {
+            'application/json' => {
+              example: JSON.parse(response.body, symbolize_names: true)
             }
-          end
-          run_test!
+          }
         end
+        run_test!
       end
+    end
   end
 end
