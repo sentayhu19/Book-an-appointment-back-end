@@ -1,52 +1,101 @@
 require 'swagger_helper'
 
-RSpec.describe 'Reservations API' do
-  path '/api/reservations' do
-    get 'Retrieves reservations' do
-      tags 'Reservations'
-      produces 'application/json', 'application/xml'
+RSpec.describe 'api/reservations', type: :request do
+  path '/api/users/{user_id}/reservations' do
+    # You'll want to customize the parameter types...
+    parameter name: 'user_id', in: :path, type: :string, description: 'user_id'
 
-      response '200', 'name found' do
-        schema type: :object,
-               properties: {
-                 date: { type: :string },
-                 user: { type: :string },
-                 motor_id: { type: :id }
-               },
-               required: %w[date user motor_id]
+    get('list reservations') do
+      response(200, 'successful') do
+        let(:user_id) { '123' }
 
+        after do |example|
+          example.metadata[:response][:content] = {
+            'application/json' => {
+              example: JSON.parse(response.body, symbolize_names: true)
+            }
+          }
+        end
         run_test!
       end
+    end
 
-      response '404', 'pet not found' do
+    post('create reservation') do
+      response(200, 'successful') do
+        let(:user_id) { '123' }
+
+        after do |example|
+          example.metadata[:response][:content] = {
+            'application/json' => {
+              example: JSON.parse(response.body, symbolize_names: true)
+            }
+          }
+        end
         run_test!
       end
     end
   end
 
-  path '/api/reservations' do
-    post 'Creates a reservation' do
-      tags 'Reservations'
-      consumes 'application/json', 'application/xml'
-      security [ApiKeyAuth: []]
+  path '/api/users/{user_id}/reservations/{id}' do
+    # You'll want to customize the parameter types...
+    parameter name: 'user_id', in: :path, type: :string, description: 'user_id'
 
-      parameter name: :reservation, in: :body, schema: {
-        type: :object,
-        properties: {
-          date: { type: :string },
-          user: { type: :integer },
-          motor_id: { type: :integer }
+    get('show reservation') do
+      response(200, 'successful') do
+        let(:user_id) { '123' }
 
-        },
-        required: %w[date user motor_id]
-      }
-
-      response '201', 'Reservation created' do
+        after do |example|
+          example.metadata[:response][:content] = {
+            'application/json' => {
+              example: JSON.parse(response.body, symbolize_names: true)
+            }
+          }
+        end
         run_test!
       end
+    end
 
-      response '422', 'invalid request' do
-        let(:reservation) { 'foo' }
+    patch('update reservation') do
+      response(200, 'successful') do
+        let(:user_id) { '123' }
+
+        after do |example|
+          example.metadata[:response][:content] = {
+            'application/json' => {
+              example: JSON.parse(response.body, symbolize_names: true)
+            }
+          }
+        end
+        run_test!
+      end
+    end
+
+    put('update reservation') do
+      response(200, 'successful') do
+        let(:user_id) { '123' }
+
+        after do |example|
+          example.metadata[:response][:content] = {
+            'application/json' => {
+              example: JSON.parse(response.body, symbolize_names: true)
+            }
+          }
+        end
+        run_test!
+      end
+    end
+
+    delete('delete reservation') do
+      response(200, 'successful') do
+        let(:user_id) { '123' }
+
+        after do |example|
+          example.metadata[:response][:content] = {
+            'application/json' => {
+              example: JSON.parse(response.body, symbolize_names: true)
+            }
+          }
+        end
         run_test!
       end
     end
