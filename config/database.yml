@@ -82,5 +82,3 @@ test:
 production:
   <<: *default
   database: Book_an_appointment_back_end_production
-  username: Book_an_appointment_back_end
-  password: <%= ENV["BOOK_AN_APPOINTMENT_BACK_END_DATABASE_PASSWORD"] %>
