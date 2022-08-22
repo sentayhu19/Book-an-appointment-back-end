@@ -16,6 +16,18 @@ RSpec.describe 'Motorcycles', type: :request do
     end
 
     post('create motorcycle') do
+      parameter name: 'user_id', in: :query, type: :integer, description: 'user_id', schema: {
+        type: :object,
+        properties: {
+          motors: {
+            model: { type: :string },
+            image: { type: :string },
+            price: { type: :integer },
+            description: { type: :text },
+            duration_months: { type: :integer }
+          }
+        }
+      }
       response(200, 'successful') do
         after do |example|
           example.metadata[:response][:content] = {
