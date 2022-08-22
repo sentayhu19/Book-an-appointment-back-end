@@ -3,11 +3,7 @@
 one:
   model: MyString
   deposit: 1
-  finance_fee: 1
-  purchase_fee: 1
-  total_payable: 9.99
   duration_months: 1
-  apr_rep: 9.99
   image: MyString
   description: MyText
   user: one
@@ -15,11 +11,7 @@ one:
 two:
   model: MyString
   deposit: 1
-  finance_fee: 1
-  purchase_fee: 1
-  total_payable: 9.99
   duration_months: 1
-  apr_rep: 9.99
   image: MyString
   description: MyText
   user: two

@@ -63,7 +63,6 @@ class Api::MotorcyclesController < ApplicationController
   end
 
   def motor_params
-    params.require('motors').permit(:model, :deposit, :total_payable, :finance_fee, :purchase_fee, :duration_months,
-                                    :apr_rep)
+    params.require('motors').permit(:model, :price, :description, :image, :duration_months)
   end
 end
