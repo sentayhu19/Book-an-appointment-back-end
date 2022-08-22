@@ -26,7 +26,7 @@ RSpec.describe 'api/reservations', type: :request do
         properties: {
           reservations: {
             city: { type: :string },
-            date: { type: :string}
+            date: { type: :string }
           }
         }
       }
