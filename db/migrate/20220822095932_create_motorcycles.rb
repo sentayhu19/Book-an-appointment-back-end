@@ -4,7 +4,6 @@ class CreateMotorcycles < ActiveRecord::Migration[7.0]
       t.string :model
       t.integer :price
       t.integer :duration_months
-      t.string :image
       t.text :description
       t.references :user, null: false, foreign_key: true
 
