@@ -3,7 +3,15 @@ require 'swagger_helper'
 RSpec.describe 'api/reservations', type: :request do
   path '/api/reservations' do
     # You'll want to customize the parameter types...
-    parameter name: 'user_id', in: :query, type: :string, description: 'user_id'
+    parameter name: :motor_id, in: :query, type: :integer, schema: {
+      type: :object,
+      properties: {
+        reservations: {
+          city: { type: :string },
+          date: { type: :string }
+        }
+      }
+    }
 
     get('list reservations') do
       response(200, 'successful') do
@@ -21,15 +29,6 @@ RSpec.describe 'api/reservations', type: :request do
     end
 
     post('create reservation') do
-      parameter name: motor_id, in: :query, type: :integer, schema: {
-        type: :object,
-        properties: {
-          reservations: {
-            city: { type: :string },
-            date: { type: :string }
-          }
-        }
-      }
       response(200, 'successful') do
         let(:user_id) { '123' }
 

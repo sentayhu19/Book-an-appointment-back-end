@@ -5,6 +5,25 @@ info:
   version: v1
 paths:
   "/api/mototorcycles":
+    parameters:
+    - name: user_id
+      in: query
+      type: integer
+      description: user_id
+      schema:
+        type: object
+        properties:
+          motors:
+            model:
+              type: string
+            image:
+              type: string
+            price:
+              type: integer
+            description:
+              type: text
+            duration_months:
+              type: integer
     get:
       summary: list motorcycles
       responses:
@@ -43,14 +62,19 @@ paths:
       responses:
         '200':
           description: successful
-  "/api/users/{user_id}/reservations":
+  "/api/reservations":
     parameters:
-    - name: user_id
-      in: path
-      description: user_id
-      required: true
+    - name: motor_id
+      in: query
+      type: integer
       schema:
-        type: string
+        type: object
+        properties:
+          reservations:
+            city:
+              type: string
+            date:
+              type: string
     get:
       summary: list reservations
       responses:
@@ -61,7 +85,7 @@ paths:
       responses:
         '200':
           description: successful
-  "/api/users/{user_id}/reservations/{id}":
+  "/api/reservations/{id}":
     parameters:
     - name: user_id
       in: path
