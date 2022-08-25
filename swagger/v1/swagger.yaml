@@ -1,9 +1,67 @@
 ---
 openapi: 3.0.1
 info:
-  title: API V1
+  title: Power Motorcycles
   version: v1
 paths:
+  "/auth/login":
+    post:
+      summary: Creates a token
+      tags:
+      - Login
+      parameters: []
+      responses:
+        '201':
+          description: token created
+        '422':
+          description: invalid request
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                username:
+                  type: string
+              required:
+              - username
+          application/xml:
+            schema:
+              type: object
+              properties:
+                username:
+                  type: string
+              required:
+              - username
+  "/auth/signup":
+    post:
+      summary: Creates a token
+      tags:
+      - Signup
+      parameters: []
+      responses:
+        '201':
+          description: token created
+        '422':
+          description: invalid request
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                username:
+                  type: string
+              required:
+              - username
+          application/xml:
+            schema:
+              type: object
+              properties:
+                username:
+                  type: string
+              required:
+              - username
   "/api/mototorcycles":
     parameters:
     - name: user_id
