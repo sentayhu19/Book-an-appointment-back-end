@@ -12,8 +12,10 @@
   
  ## Live Demo
  ### [Front-end link](https://github.com/AyoubMs/book-an-appointment-front-end)
- - [API-Documentation using Swagger]()
- - [Motorcycle-booking-service-front-end]()
+ 
+ 
+ - [API-docs](http://127.0.0.1:3000/api-docs/index.html)
+
 
 
 ## Getting Started
