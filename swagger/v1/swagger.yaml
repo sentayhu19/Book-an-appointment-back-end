@@ -1,0 +1,348 @@
+---
+openapi: 3.0.1
+info:
+  title: Power Motorcycle
+  version: v1
+paths:
+  "/api/users/sign_in":
+    post:
+      summary: Creates a token
+      tags:
+      - Login
+      parameters: []
+      responses:
+        '201':
+          description: token created
+        '422':
+          description: invalid request
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                user:
+                  type: object
+                  properties:
+                    name:
+                      type: string
+              required:
+              - name
+          application/xml:
+            schema:
+              type: object
+              properties:
+                user:
+                  type: object
+                  properties:
+                    name:
+                      type: string
+              required:
+              - name
+  "/api/users":
+    post:
+      summary: Creates a token
+      tags:
+      - Signup
+      parameters: []
+      responses:
+        '201':
+          description: token created
+        '422':
+          description: invalid request
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                user:
+                  type: object
+                  properties:
+                    name:
+                      type: string
+              required:
+              - name
+          application/xml:
+            schema:
+              type: object
+              properties:
+                user:
+                  type: object
+                  properties:
+                    name:
+                      type: string
+              required:
+              - name
+  "/api/motorcycles":
+    parameters:
+    - name: user_id
+      in: query
+      description: user_id
+      schema:
+        type: integer
+    get:
+      summary: list motorcycles
+      responses:
+        '200':
+          description: successful
+    post:
+      summary: create motorcycle
+      parameters: []
+      responses:
+        '200':
+          description: successful
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                motors:
+                  type: object
+                  properties:
+                    model:
+                      type: string
+                    price:
+                      type: integer
+                    description:
+                      type: string
+                    duration_months:
+                      type: integer
+          application/xml:
+            schema:
+              type: object
+              properties:
+                motors:
+                  type: object
+                  properties:
+                    model:
+                      type: string
+                    price:
+                      type: integer
+                    description:
+                      type: string
+                    duration_months:
+                      type: integer
+  "/api/motorcycles/{id}":
+    parameters:
+    - name: id
+      in: path
+      description: id
+      required: true
+      schema:
+        type: string
+    get:
+      summary: show motorcycle
+      responses:
+        '200':
+          description: successful
+    patch:
+      summary: update motorcycle
+      parameters: []
+      responses:
+        '200':
+          description: successful
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                motors:
+                  type: object
+                  properties:
+                    model:
+                      type: string
+                    price:
+                      type: integer
+                    description:
+                      type: string
+                    duration_months:
+                      type: integer
+          application/xml:
+            schema:
+              type: object
+              properties:
+                motors:
+                  type: object
+                  properties:
+                    model:
+                      type: string
+                    price:
+                      type: integer
+                    description:
+                      type: string
+                    duration_months:
+                      type: integer
+    put:
+      summary: update motorcycles
+      parameters: []
+      responses:
+        '200':
+          description: successful
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                motors:
+                  type: object
+                  properties:
+                    model:
+                      type: string
+                    price:
+                      type: integer
+                    description:
+                      type: string
+                    duration_months:
+                      type: integer
+          application/xml:
+            schema:
+              type: object
+              properties:
+                motors:
+                  type: object
+                  properties:
+                    model:
+                      type: string
+                    price:
+                      type: integer
+                    description:
+                      type: string
+                    duration_months:
+                      type: integer
+    delete:
+      summary: delete motorcycle
+      responses:
+        '200':
+          description: successful
+  "/api/reservations":
+    parameters:
+    - name: user_id
+      in: query
+      schema:
+        type: integer
+    get:
+      summary: list reservations
+      responses:
+        '200':
+          description: successful
+    post:
+      summary: create reservation
+      parameters:
+      - name: motor_id
+        in: query
+        schema:
+          type: integer
+      responses:
+        '200':
+          description: successful
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                reservations:
+                  type: object
+                  properties:
+                    city:
+                      type: string
+                    date:
+                      type: string
+          application/xml:
+            schema:
+              type: object
+              properties:
+                reservations:
+                  type: object
+                  properties:
+                    city:
+                      type: string
+                    date:
+                      type: string
+  "/api/reservations/{id}":
+    parameters:
+    - name: id
+      in: path
+      description: id
+      required: true
+      schema:
+        type: integer
+    get:
+      summary: show reservation
+      responses:
+        '200':
+          description: successful
+    patch:
+      summary: update reservation
+      parameters: []
+      responses:
+        '200':
+          description: successful
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                reservations:
+                  type: object
+                  properties:
+                    city:
+                      type: string
+                    date:
+                      type: string
+          application/xml:
+            schema:
+              type: object
+              properties:
+                reservations:
+                  type: object
+                  properties:
+                    city:
+                      type: string
+                    date:
+                      type: string
+    put:
+      summary: update reservation
+      parameters: []
+      responses:
+        '200':
+          description: successful
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                reservations:
+                  type: object
+                  properties:
+                    city:
+                      type: string
+                    date:
+                      type: string
+          application/xml:
+            schema:
+              type: object
+              properties:
+                reservations:
+                  type: object
+                  properties:
+                    city:
+                      type: string
+                    date:
+                      type: string
+    delete:
+      summary: delete reservation
+      responses:
+        '200':
+          description: successful
+servers:
+- url: https://{defaultHost}
+  variables:
+    defaultHost:
+      default: www.example.com
