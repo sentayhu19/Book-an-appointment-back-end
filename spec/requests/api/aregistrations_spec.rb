@@ -1,47 +1,52 @@
 require 'swagger_helper'
 
 RSpec.describe 'Registration API' do
-  path '/auth/login' do
+  path '/api/users/sign_in' do
     post 'Creates a token' do
       tags 'Login'
       consumes 'application/json', 'application/xml'
       parameter name: :login, in: :body, schema: {
         type: :object,
         properties: {
-          username: { type: :string }
+          user: {
+            type: :object,
+            properties: {
+              name: { type: :string }
+            }
+          }
         },
-        required: %w[username]
+        required: %w[name]
       }
-
       response '201', 'token created' do
         let(:login) { { username: 'Temesgen' } }
         run_test!
       end
-
       response '422', 'invalid request' do
         let(:login) { '' }
         run_test!
       end
     end
   end
-
-  path '/auth/signup' do
+  path '/api/users' do
     post 'Creates a token' do
       tags 'Signup'
       consumes 'application/json', 'application/xml'
       parameter name: :signup, in: :body, schema: {
         type: :object,
         properties: {
-          username: { type: :string }
+          user: {
+            type: :object,
+            properties: {
+              name: { type: :string }
+            }
+          }
         },
-        required: %w[username]
+        required: %w[name]
       }
-
       response '201', 'token created' do
         let(:signup) { { username: 'Temesgen' } }
         run_test!
       end
-
       response '422', 'invalid request' do
         let(:signup) { '' }
         run_test!
