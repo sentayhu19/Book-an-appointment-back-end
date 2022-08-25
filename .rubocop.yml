@@ -27,7 +27,6 @@ Metrics/ClassLength:
 Metrics/BlockLength:
   IgnoredMethods: ['describe']
   Max: 60
-
 Style/Documentation:
   Enabled: false
 Style/ClassAndModuleChildren:
@@ -58,3 +57,4 @@ Style/HashTransformKeys:
   Enabled: false
 Style/HashTransformValues:
   Enabled: false
+  
