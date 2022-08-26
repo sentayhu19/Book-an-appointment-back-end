@@ -53,7 +53,6 @@ There are 4 members in this Group
    ```
    rails s
    ```
-   Visit [localhost](http://localhost:3000/api/v1) and pass the desired enpoints to view the content
 
 5. To run the tests use:
    ```
