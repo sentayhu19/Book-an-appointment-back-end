@@ -4,6 +4,17 @@
 
 > An API that provides endpoints for motorcycle-booking-service-front-end
 
+## Kanban Board
+[Kanban board link](https://github.com/sentayhu19/Book-an-appointment-back-end/projects/1)
+[Kanban board screenshot](![kanban](https://user-images.githubusercontent.com/77745775/184105254-444d5425-98de-4e7e-b920-79e09d1032ea.png))
+
+There are 4 members in this Group
+
+1. Solomon Hagan @Achilles-Dev 
+2. Debas Gebreslasie @Debas-31 
+3. Ayoub Chahir @AyoubMs 
+4. Sentayhu Berhanu @sentayhu19 
+
 
 ## Built With
 
