@@ -6,5 +6,4 @@ class Motorcycle < ApplicationRecord
   validates :duration_months, presence: true, numericality: { greater_than: 0 }
   validates :price, presence: true, numericality: { greater_than: 0 }
   validates :images, presence: true
-
 end
