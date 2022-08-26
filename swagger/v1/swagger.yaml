@@ -1,7 +1,7 @@
 ---
 openapi: 3.0.1
 info:
-  title: Power Motorcycle
+  title: API V1
   version: v1
 paths:
   "/api/users/sign_in":
@@ -46,7 +46,7 @@ paths:
       - Signup
       parameters: []
       responses:
-        '201':
+        '200':
           description: token created
         '422':
           description: invalid request
@@ -345,4 +345,4 @@ servers:
 - url: https://{defaultHost}
   variables:
     defaultHost:
-      default: https://{http://localhost:3000/}
+      default: www.example.com

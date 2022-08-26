@@ -18,7 +18,7 @@ RSpec.describe 'Registration API' do
         required: %w[name]
       }
       response '201', 'token created' do
-        let(:login) { { username: 'Temesgen' } }
+        let(:login) { { name: 'Temesgen' } }
         run_test!
       end
       response '422', 'invalid request' do
@@ -43,8 +43,8 @@ RSpec.describe 'Registration API' do
         },
         required: %w[name]
       }
-      response '201', 'token created' do
-        let(:signup) { { username: 'Temesgen' } }
+      response '200', 'token created' do
+        let(:signup) { { name: 'Temesgen' } }
         run_test!
       end
       response '422', 'invalid request' do
